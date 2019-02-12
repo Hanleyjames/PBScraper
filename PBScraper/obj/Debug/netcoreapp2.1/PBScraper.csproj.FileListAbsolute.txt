@@ -1,0 +1,1 @@
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.csproj.CoreCompileInputs.cache

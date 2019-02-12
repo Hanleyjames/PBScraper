@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PBScraper", "PBScraper\PBScraper.csproj", "{B2922A4F-E5A3-43E8-80F5-CC449E0E2131}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2922A4F-E5A3-43E8-80F5-CC449E0E2131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2922A4F-E5A3-43E8-80F5-CC449E0E2131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2922A4F-E5A3-43E8-80F5-CC449E0E2131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2922A4F-E5A3-43E8-80F5-CC449E0E2131}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6115C450-5C8E-4C32-AA65-69A02AD3F8F0}
+	EndGlobalSection
+EndGlobal
