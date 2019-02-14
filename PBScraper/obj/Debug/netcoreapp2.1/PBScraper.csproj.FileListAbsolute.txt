@@ -1,1 +1,16 @@
-C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.csproj.CoreCompileInputs.cache
+C:/Users/DogHugger/source/repos/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/PBScraper.csproj.CoreCompileInputs.cache
+/Users/grev0ushede/Prog/PBScraper/PBScraper/bin/Debug/netcoreapp2.1/PBScraper.deps.json
+/Users/grev0ushede/Prog/PBScraper/PBScraper/bin/Debug/netcoreapp2.1/PBScraper.runtimeconfig.json
+/Users/grev0ushede/Prog/PBScraper/PBScraper/bin/Debug/netcoreapp2.1/PBScraper.runtimeconfig.dev.json
+/Users/grev0ushede/Prog/PBScraper/PBScraper/bin/Debug/netcoreapp2.1/PBScraper.dll
+/Users/grev0ushede/Prog/PBScraper/PBScraper/bin/Debug/netcoreapp2.1/PBScraper.pdb
+/Users/grev0ushede/Prog/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/PBScraper.csprojAssemblyReference.cache
+/Users/grev0ushede/Prog/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/PBScraper.csproj.CoreCompileInputs.cache
+/Users/grev0ushede/Prog/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/PBScraper.RazorAssemblyInfo.cache
+/Users/grev0ushede/Prog/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/PBScraper.RazorAssemblyInfo.cs
+/Users/grev0ushede/Prog/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/UserSecretsAssemblyInfo.cs
+/Users/grev0ushede/Prog/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/PBScraper.AssemblyInfoInputs.cache
+/Users/grev0ushede/Prog/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/PBScraper.AssemblyInfo.cs
+/Users/grev0ushede/Prog/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/PBScraper.RazorTargetAssemblyInfo.cache
+/Users/grev0ushede/Prog/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/PBScraper.dll
+/Users/grev0ushede/Prog/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/PBScraper.pdb
