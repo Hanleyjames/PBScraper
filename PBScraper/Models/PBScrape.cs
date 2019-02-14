@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Text.RegularExpressions;
-//using HtmlAgilityPack;
+using HtmlAgilityPack;
 
 namespace PBScraper.Models
 {
@@ -72,6 +72,16 @@ namespace PBScraper.Models
         public void SetPhone(string Phone)
         {
             _phone = Phone;
+        }
+
+        //Parse HTML from given url
+        public object ParseHtml(string url)
+        {
+            string html = @url;
+            HtmlWeb web = new HtmlWeb;
+            var htmlDoc = web.Load(html);
+            var node = htmlDoc.DocumentNode.SelectSingleNode("//body");
+            return node;
         }
     }
 }
