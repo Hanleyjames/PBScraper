@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PBScraper", "PBScraper\PBScraper.csproj", "{B2922A4F-E5A3-43E8-80F5-CC449E0E2131}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PBScraperTests", "PBScraperTests\PBScraperTests.csproj", "{43EE1AF6-5E8E-4F63-98E3-ED8086E3FBA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B2922A4F-E5A3-43E8-80F5-CC449E0E2131}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2922A4F-E5A3-43E8-80F5-CC449E0E2131}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2922A4F-E5A3-43E8-80F5-CC449E0E2131}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43EE1AF6-5E8E-4F63-98E3-ED8086E3FBA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43EE1AF6-5E8E-4F63-98E3-ED8086E3FBA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43EE1AF6-5E8E-4F63-98E3-ED8086E3FBA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43EE1AF6-5E8E-4F63-98E3-ED8086E3FBA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
