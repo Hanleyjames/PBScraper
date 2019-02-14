@@ -11,7 +11,14 @@ namespace PBScraperTests
         [TestMethod]
         public void PBScrape_SavesInstance_IsTrue()
         {
-            Assert.AreEqual(true, false);
+            //Arrange
+            PBScrape newScrape = new PBScrape("Wikipedia.org");
+            //Act
+            newScrape.Save();
+            List<PBScrape> scrapedData = PBScrape.GetInstanceData();
+            int scrapedDataCount = scrapedData.Count;
+            //Assert
+            Assert.AreEqual(1, ScrapedDataCount);
         }
     }
 }

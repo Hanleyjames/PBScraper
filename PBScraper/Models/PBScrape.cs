@@ -16,7 +16,7 @@ namespace PBScraper.Models
         private string _email;
         private string _phone;
 
-        public PBScrape(int Id = 0, string Keyword = "keyword not set",string Url = "URL not set", string Email = "Email not set", string Phone = "Phone not set")
+        public PBScrape(string Url, int Id = 0, string Keyword = "keyword not set", string Email = "Email not set", string Phone = "Phone not set")
         {
             _id = Id;
             _keyword = Keyword;
