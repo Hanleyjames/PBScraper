@@ -15,10 +15,10 @@ namespace PBScraperTests
             PBScrape newScrape = new PBScrape("Wikipedia.org");
             //Act
             newScrape.Save();
-            List<PBScrape> scrapedData = PBScrape.GetInstanceData();
+            List<PBScrape> scrapedData = newScrape.GetInstanceData();
             int scrapedDataCount = scrapedData.Count;
             //Assert
-            Assert.AreEqual(1, ScrapedDataCount);
+            Assert.AreEqual(1, scrapedDataCount);
         }
     }
 }

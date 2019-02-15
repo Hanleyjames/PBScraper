@@ -74,6 +74,11 @@ namespace PBScraper.Models
             _phone = Phone;
         }
 
+        public void Save()
+        {
+
+        }
+
         //Parse HTML from given url
         public object ParseHtml(string url)
         {
