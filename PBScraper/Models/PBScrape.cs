@@ -15,7 +15,7 @@ namespace PBScraper.Models
         private string _url;
         private string _email;
         private string _phone;
-        public List<PBScrape> instancedata;
+        private static List<PBScrape> _instancedata = new List<PBScrape> { };
 
         public PBScrape(string Url, int Id = 0, string Keyword = "keyword not set", string Email = "Email not set", string Phone = "Phone not set")
         {
@@ -77,12 +77,12 @@ namespace PBScraper.Models
 
         public void Save()
         {
-
+            _instancedata.Add(this);
         }
 
         public List<PBScrape> GetInstanceData()
         {
-            return instancedata;
+            return _instancedata;
         }
 
         //Parse HTML from given url
