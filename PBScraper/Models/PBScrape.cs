@@ -94,5 +94,15 @@ namespace PBScraper.Models
             var node = htmlDoc.DocumentNode.SelectSingleNode("//body");
             return node;
         }
+
+        public object GetHeaderHtml(string url)
+        {
+            string html = @url;
+            HtmlWeb web = new HtmlWeb();
+            var htmlDoc = web.Load(html);
+            var node = htmlDoc.DocumentNode.SelectSingleNode("//head/title");
+            return node;
+        }
+
     }
 }
