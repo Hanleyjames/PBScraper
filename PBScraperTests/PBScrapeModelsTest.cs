@@ -20,5 +20,16 @@ namespace PBScraperTests
             //Assert
             Assert.AreEqual(1, scrapedDataCount);
         }
+
+        [TestMethod]
+        public void PBScrape_SetsAndRetrievesInformation_IsTrue()
+        {
+            //Arrange
+            PBScrape newScrape = new PBScrape("youtube.com");
+            //Act
+            newScrape.SetEmail("hanley.doggo@outlook.com");
+            //Assert
+            Assert.AreEqual(newScrape.GetEmail(), "hanley.doggo@outlook.com");
+        }
     }
 }
