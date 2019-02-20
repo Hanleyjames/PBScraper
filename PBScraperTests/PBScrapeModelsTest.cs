@@ -22,7 +22,7 @@ namespace PBScraperTests
         }
 
         [TestMethod]
-        public void PBScrape_SetsAndRetrievesInformation_IsTrue()
+        public void PBScrape_SetsAndRetrievesEmail_IsTrue()
         {
             //Arrange
             PBScrape newScrape = new PBScrape("youtube.com");
@@ -30,6 +30,26 @@ namespace PBScraperTests
             newScrape.SetEmail("hanley.doggo@outlook.com");
             //Assert
             Assert.AreEqual(newScrape.GetEmail(), "hanley.doggo@outlook.com");
+        }
+        [TestMethod]
+        public void PBScrape_SetsAndRetrievesPhone_IsTrue()
+        {
+            //Arrange
+            PBScrape newScrape = new PBScrape("Outlook.com");
+            //Act
+            newScrape.SetPhone("1-800-453-9999");
+            //Assert
+            Assert.AreEqual(newScrape.GetPhone(), "1-800-453-9999");
+        }
+        [TestMethod]
+        public void PBScrape_SetsAndRetrievesKeyword_IsTrue()
+        {
+            //Arrange
+            PBScrape newScrape = new PBScrape("Google.com");
+            //Act
+            newScrape.SetKeyword("Seattle Flowers");
+            //Assert
+            Assert.AreEqual(newScrape.GetKeyword(), "Seattle Flowers");
         }
     }
 }
