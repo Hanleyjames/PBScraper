@@ -88,7 +88,7 @@ namespace PBScraper.Models
         //Parse HTML from given url
         public object ParseHtml(string url)
         {
-            string html = @url;
+            string html = url;
             HtmlWeb web = new HtmlWeb();
             var htmlDoc = web.Load(html);
             var node = htmlDoc.DocumentNode.SelectSingleNode("//body");
@@ -97,9 +97,9 @@ namespace PBScraper.Models
 
         public object GetHeaderHtml(string url)
         {
-            string html = @url;
+            string html = url;
             HtmlWeb web = new HtmlWeb();
-            var htmlDoc = web.Load(html);
+            var htmlDoc = web.Load(@html);
             var node = htmlDoc.DocumentNode.SelectSingleNode("//head/title");
             return node;
         }
