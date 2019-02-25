@@ -1,4 +1,3 @@
-C:/Users/DogHugger/source/repos/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/PBScraper.csproj.CoreCompileInputs.cache
 /Users/grev0ushede/Prog/PBScraper/PBScraper/bin/Debug/netcoreapp2.1/PBScraper.deps.json
 /Users/grev0ushede/Prog/PBScraper/PBScraper/bin/Debug/netcoreapp2.1/PBScraper.runtimeconfig.json
 /Users/grev0ushede/Prog/PBScraper/PBScraper/bin/Debug/netcoreapp2.1/PBScraper.runtimeconfig.dev.json
@@ -14,3 +13,18 @@ C:/Users/DogHugger/source/repos/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/PBSc
 /Users/grev0ushede/Prog/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/PBScraper.RazorTargetAssemblyInfo.cache
 /Users/grev0ushede/Prog/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/PBScraper.dll
 /Users/grev0ushede/Prog/PBScraper/PBScraper/obj/Debug/netcoreapp2.1/PBScraper.pdb
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\bin\Debug\netcoreapp2.1\PBScraper.deps.json
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\bin\Debug\netcoreapp2.1\PBScraper.runtimeconfig.json
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\bin\Debug\netcoreapp2.1\PBScraper.runtimeconfig.dev.json
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\bin\Debug\netcoreapp2.1\PBScraper.dll
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\bin\Debug\netcoreapp2.1\PBScraper.pdb
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.csprojAssemblyReference.cache
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.csproj.CoreCompileInputs.cache
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.RazorAssemblyInfo.cache
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.RazorAssemblyInfo.cs
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.AssemblyInfoInputs.cache
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.AssemblyInfo.cs
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.RazorTargetAssemblyInfo.cache
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.dll
+C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.pdb
