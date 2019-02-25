@@ -51,5 +51,14 @@ namespace PBScraperTests
             //Assert
             Assert.AreEqual(newScrape.GetKeyword(), "Seattle Flowers");
         }
+        [TestMethod]
+        public void PBScrape_GetsURLBody_IsTrue()
+        {
+            //Arrange
+            string url = "https://www.wikipedia.org";
+            PBScrape newScrape = new PBScrape(url);
+            //Act
+            
+        }
     }
 }
