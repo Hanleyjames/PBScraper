@@ -96,12 +96,12 @@ namespace PBScraper.Models
             return node;
         }
 
-        public object GetHeaderHtml(string url)
+        public object GetTitleHtml(string url)
         {
             string html = url;
             HtmlWeb web = new HtmlWeb();
             var htmlDoc = web.Load(@html);
-            var node = htmlDoc.DocumentNode.SelectSingleNode("//head/title");
+            var node = htmlDoc.DocumentNode.SelectSingleNode("//title");
             return node;
         }
 

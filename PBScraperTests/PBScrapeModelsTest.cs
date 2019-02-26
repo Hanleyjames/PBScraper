@@ -58,7 +58,7 @@ namespace PBScraperTests
             string url = "https://www.wikipedia.org";
             PBScrape newScrape = new PBScrape(url);
             //Act
-            var ParseObject = newScrape.ParseHtml(url);
+            var ParseObject = newScrape.GetTitleHtml(url);
             //Assert
         }
     }
