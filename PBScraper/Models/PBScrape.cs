@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Text.RegularExpressions;
+using System.Net;
 using HtmlAgilityPack;
 
 namespace PBScraper.Models
