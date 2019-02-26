@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml;
@@ -98,12 +99,29 @@ namespace PBScraper.Models
 
         public object GetTitleHtml(string url)
         {
-            string html = url;
-            HtmlWeb web = new HtmlWeb();
-            var htmlDoc = web.Load(@html);
-            var node = htmlDoc.DocumentNode.SelectSingleNode("//title");
-            return node;
+            HtmlDocument htmlDoc = new HtmlDocument();
+            string urlResponse = URLRequest(url);
         }
 
+        static string URLRequest(string url)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            request.Timeout = 6000;
+            request.UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0)";
+            string responseContent = null;
+            using (WebResponse response = request.GetResponse())
+            {
+                using (Stream stream = response.GetResponseStream())
+                {
+                    using (StreamReader streamreader = new StreamReader(stream))
+                    {
+                        responseContent = streamreader.ReadToEnd();
+                    }
+                }
+            }
+            return (responseContent);
+
+        }
     }
 }
