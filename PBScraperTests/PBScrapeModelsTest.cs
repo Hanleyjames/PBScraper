@@ -25,7 +25,7 @@ namespace PBScraperTests
         public void PBScrape_SetsAndRetrievesEmail_IsTrue()
         {
             //Arrange
-            PBScrape newScrape = new PBScrape("youtube.com");
+            PBScrape newScrape = new PBScrape("https://youtube.com");
             //Act
             newScrape.SetEmail("hanley.doggo@outlook.com");
             //Assert
@@ -35,7 +35,7 @@ namespace PBScraperTests
         public void PBScrape_SetsAndRetrievesPhone_IsTrue()
         {
             //Arrange
-            PBScrape newScrape = new PBScrape("Outlook.com");
+            PBScrape newScrape = new PBScrape("https://Outlook.com");
             //Act
             newScrape.SetPhone("1-800-453-9999");
             //Assert
@@ -45,7 +45,7 @@ namespace PBScraperTests
         public void PBScrape_SetsAndRetrievesKeyword_IsTrue()
         {
             //Arrange
-            PBScrape newScrape = new PBScrape("Google.com");
+            PBScrape newScrape = new PBScrape("https://Google.com");
             //Act
             newScrape.SetKeyword("Seattle Flowers");
             //Assert
@@ -60,6 +60,7 @@ namespace PBScraperTests
             //Act
             var ParseObject = newScrape.GetTitleHtml(url);
             //Assert
+            Assert.AreEqual(ParseObject, "Wikipedia");
         }
     }
 }

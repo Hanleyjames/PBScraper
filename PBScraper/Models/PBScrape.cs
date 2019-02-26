@@ -101,6 +101,9 @@ namespace PBScraper.Models
         {
             HtmlDocument htmlDoc = new HtmlDocument();
             string urlResponse = URLRequest(url);
+            htmlDoc.LoadHtml(urlResponse);
+            var titleNode = htmlDoc.DocumentNode.SelectNodes("//title");
+            return titleNode[0].InnerText;
         }
 
         static string URLRequest(string url)
