@@ -52,7 +52,7 @@ namespace PBScraperTests
             Assert.AreEqual(newScrape.GetKeyword(), "Seattle Flowers");
         }
         [TestMethod]
-        public void PBScrape_GetsURLBody_IsTrue()
+        public void PBScrape_GetsURLTitle_IsTrue()
         {
             //Arrange
             string url = "https://www.wikipedia.org";
@@ -60,7 +60,7 @@ namespace PBScraperTests
             //Act
             var ParseObject = newScrape.GetTitleHtml(url);
             //Assert
-            Assert.AreEqual(ParseObject, "Wikipedia");
+            Assert.AreEqual("Wikipedia", ParseObject);
         }
     }
 }

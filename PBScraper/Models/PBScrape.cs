@@ -96,7 +96,7 @@ namespace PBScraper.Models
             var node = htmlDoc.DocumentNode.SelectSingleNode("//body");
             return node;
         }
-
+        //Parse Title
         public object GetTitleHtml(string url)
         {
             HtmlDocument htmlDoc = new HtmlDocument();
