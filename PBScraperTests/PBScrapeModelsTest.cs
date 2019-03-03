@@ -12,7 +12,7 @@ namespace PBScraperTests
         public void PBScrape_SavesInstance_IsTrue()
         {
             //Arrange
-            PBScrape newScrape = new PBScrape("Wikipedia.org");
+            PBScrape newScrape = new PBScrape("Wikipedia test");
             //Act
             newScrape.Save();
             List<PBScrape> scrapedData = newScrape.GetInstanceData();
@@ -25,40 +25,40 @@ namespace PBScraperTests
         public void PBScrape_SetsAndRetrievesEmail_IsTrue()
         {
             //Arrange
-            PBScrape newScrape = new PBScrape("https://youtube.com");
+            PBScrape newScrape = new PBScrape("Email test");
             //Act
             newScrape.SetEmail("hanley.doggo@outlook.com");
             //Assert
-            Assert.AreEqual(newScrape.GetEmail(), "hanley.doggo@outlook.com");
+            Assert.AreEqual("hanley.doggo@outlook.com", newScrape.GetEmail());
         }
         [TestMethod]
         public void PBScrape_SetsAndRetrievesPhone_IsTrue()
         {
             //Arrange
-            PBScrape newScrape = new PBScrape("https://Outlook.com");
+            PBScrape newScrape = new PBScrape("Phone test");
             //Act
             newScrape.SetPhone("1-800-453-9999");
             //Assert
-            Assert.AreEqual(newScrape.GetPhone(), "1-800-453-9999");
+            Assert.AreEqual("1-800-453-9999", newScrape.GetPhone());
         }
         [TestMethod]
         public void PBScrape_SetsAndRetrievesKeyword_IsTrue()
         {
             //Arrange
-            PBScrape newScrape = new PBScrape("https://Google.com");
-            //Act
-            newScrape.SetKeyword("Seattle Flowers");
+            PBScrape newScrape = new PBScrape("Seattle Flowers");
             //Assert
-            Assert.AreEqual(newScrape.GetKeyword(), "Seattle Flowers");
+            Assert.AreEqual("Seattle Flowers", newScrape.GetKeyword());
         }
         [TestMethod]
         public void PBScrape_GetsURLTitle_IsTrue()
         {
             //Arrange
-            string url = "https://www.wikipedia.org";
-            PBScrape newScrape = new PBScrape(url);
+            string Keyword = "Wikipedia test";
+            string Url = "https://www.wikipedia.org";
+            PBScrape newScrape = new PBScrape(Keyword);
+            newScrape.SetUrl(Url);
             //Act
-            var ParseObject = newScrape.GetTitleHtml(url);
+            var ParseObject = newScrape.GetTitleHtml(newScrape.GetUrl());
             //Assert
             Assert.AreEqual("Wikipedia", ParseObject);
         }

@@ -6,7 +6,7 @@ namespace PBScraperTests
     public class AssertionTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void AssertionTest_TwoPlusTwoEqualsFour_IsTrue()
         {
             int result = 2 + 2;
             Assert.AreEqual(4, result);
