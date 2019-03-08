@@ -22,7 +22,6 @@ C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBSc
 C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.csproj.CoreCompileInputs.cache
 C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.RazorAssemblyInfo.cache
 C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.RazorAssemblyInfo.cs
-C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.AssemblyInfoInputs.cache
 C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.AssemblyInfo.cs
 C:\Users\DogHugger\source\repos\PBScraper\PBScraper\obj\Debug\netcoreapp2.1\PBScraper.RazorTargetAssemblyInfo.cache
