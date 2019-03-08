@@ -62,5 +62,16 @@ namespace PBScraperTests
             //Assert
             Assert.AreEqual("Wikipedia", ParseObject);
         }
+        [TestMethod]
+        public void PBScrape_RetrievesGoogleAPI_IsTrue()
+        {
+            //Arrange
+            string Keyword = "Sandwhich";
+            PBScrape newScrape = new PBScrape(Keyword);
+            //Act
+            var ParseObject = newScrape.GetGoogleResults(newScrape.GetKeyword);
+            //Assert
+            Assert.AreEqual(null, ParseObject);
+        }
     }
 }

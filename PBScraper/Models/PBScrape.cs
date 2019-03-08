@@ -111,6 +111,8 @@ namespace PBScraper.Models
             return titleNode[0].InnerText;
         }
 
+
+        //Request Url with Method and timeout
         static string URLRequest(string url)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
