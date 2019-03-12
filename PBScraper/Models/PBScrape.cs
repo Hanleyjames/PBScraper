@@ -137,5 +137,27 @@ namespace PBScraper.Models
             return (responseContent);
 
         }
+
+        //Get Google Results
+        public object GetGoogleResults(string Keyword)
+        {
+            var customSearchGet = new CustomsearchService(new Google.Apis.Services.BaseClientService.Initializer { ApiKey = _api });
+            string query = Keyword;
+            var listRequest = customSearchGet.Cse.List(query);
+            listRequest.Cx = _searchEngineId;
+            List<PBScrape> Results = new List<PBScrape>();
+            byte count = 0;
+            try 
+            { 
+                while(Results != null)
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex; 
+            }
+        }
     }
 }
