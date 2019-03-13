@@ -145,13 +145,18 @@ namespace PBScraper.Models
             string query = Keyword;
             var listRequest = customSearchGet.Cse.List(query);
             listRequest.Cx = _searchEngineId;
-            List<PBScrape> Results = new List<PBScrape>();
+            IList<Google.Apis.Customsearch.v1.Data.Result> Results = new List<Google.Apis.Customsearch.v1.Data.Result>();
             byte count = 0;
             try 
             { 
                 while(Results != null)
                 {
-
+                    listRequest.Start = count * 10 + 1;
+                    Results = listRequest.Execute().Items;
+                    if (Results != null)
+                        foreach (var item in Results)
+                            Results.Add(item.Link);
+                    count++;
                 }
             }
             catch (Exception ex)
