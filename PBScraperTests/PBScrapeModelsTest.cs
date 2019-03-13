@@ -73,5 +73,10 @@ namespace PBScraperTests
             //Assert
             Assert.AreNotEqual(null, ParseObject);
         }
+        [TestMethod]
+        public void PBScrape_RetrievesBingAPI_IsTrue()
+        {
+
+        }
     }
 }
