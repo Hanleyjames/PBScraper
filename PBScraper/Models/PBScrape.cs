@@ -19,7 +19,7 @@ namespace PBScraper.Models
         private string _email;
         private string _phone;
         private static List<PBScrape> _instancedata = new List<PBScrape> { };
-        private static List<string> _urls = new List<string> { };
+        private List<string> _urls = new List<string> { };
         private readonly string _api = "AIzaSyAwaNkJAWCWn6lzvglnRbqtS1y7tbNUJSY";
         private readonly string _searchEngineId = "015153167064412439961:9t3cwc_ifrm";
         public Regex _findEmail = new Regex(@"^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@(([0-9a-zA-Z])+([-\w]*[0-9a-zA-Z])*\.)+[a-zA-Z]{2,9})$");
@@ -155,9 +155,10 @@ namespace PBScraper.Models
                     Results = listRequest.Execute().Items;
                     if (Results != null)
                         foreach (var item in Results)
-                            Results.Add(item.Link);
+                            _urls.Add(item.Link);
                     count++;
                 }
+                return _urls;
             }
             catch (Exception ex)
             {

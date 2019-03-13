@@ -69,9 +69,9 @@ namespace PBScraperTests
             string Keyword = "Sandwhich";
             PBScrape newScrape = new PBScrape(Keyword);
             //Act
-            var ParseObject = newScrape.GetGoogleResults(newScrape.GetKeyword);
+            var ParseObject = newScrape.GetGoogleResults(newScrape.GetKeyword());
             //Assert
-            Assert.AreEqual(null, ParseObject);
+            Assert.AreNotEqual(null, ParseObject);
         }
     }
 }
