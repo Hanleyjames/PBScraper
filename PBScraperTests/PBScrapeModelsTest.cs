@@ -75,6 +75,18 @@ namespace PBScraperTests
             Assert.AreNotEqual(0, urlList);
         }
         [TestMethod]
+        public void PBScrape_SplitUrlList_IsTrue()
+        {
+            //Arrange
+            string Keyword = "Seattle Bouldering";
+            PBScrape newScrape = new PBScrape(Keyword);
+            //Act
+            newScrape.GetGoogleResults(newScrape.GetKeyword());
+            var urlList = newScrape.GetUrls();
+            //Assert
+            Assert.Fail();
+        }
+        [TestMethod]
         public void PBScrape_RetrievesBingAPI_IsTrue()
         {
             //Arrange
