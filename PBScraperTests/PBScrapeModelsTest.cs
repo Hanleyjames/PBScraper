@@ -58,7 +58,7 @@ namespace PBScraperTests
             PBScrape newScrape = new PBScrape(Keyword);
             newScrape.SetUrl(Url);
             //Act
-            var ParseObject = newScrape.GetTitleHtml(newScrape.GetUrl());
+            object ParseObject = newScrape.GetTitleHtml(newScrape.GetUrl());
             //Assert
             Assert.AreEqual("Wikipedia", ParseObject);
         }
@@ -70,19 +70,20 @@ namespace PBScraperTests
             PBScrape newScrape = new PBScrape(Keyword);
             //Act
             newScrape.GetGoogleResults(newScrape.GetKeyword());
-            var urlList = newScrape.GetUrls();
+            List<string> urlList = newScrape.GetUrls();
             //Assert
             Assert.AreNotEqual(0, urlList);
         }
         [TestMethod]
-        public void PBScrape_SplitUrlList_IsTrue()
+        public void PBScrape_SaveUrlList_IsTrue()
         {
             //Arrange
             string Keyword = "Seattle Bouldering";
             PBScrape newScrape = new PBScrape(Keyword);
             //Act
             newScrape.GetGoogleResults(newScrape.GetKeyword());
-            var urlList = newScrape.GetUrls();
+            List<string> urlList = newScrape.GetUrls();
+            newScrape.SplitAndSaveUrls(urlList);
             //Assert
             Assert.Fail();
         }
