@@ -61,6 +61,11 @@ namespace PBScraper.Models
         {
             return _phone;
         }
+        
+        public List<string> GetUrls()
+        {
+            return _urls;
+        }
 
         public void SetId(int Id)
         {
