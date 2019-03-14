@@ -26,7 +26,6 @@ namespace PBScraper.Models
         public Regex _findEmail = new Regex(@"^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@(([0-9a-zA-Z])+([-\w]*[0-9a-zA-Z])*\.)+[a-zA-Z]{2,9})$");
         public Regex _findNumber = new Regex(@"(?:(?:\+?([1-9]|[0-9][0-9]|[0-9][0-9][0-9])\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([0-9][1-9]|[0-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?");
         //URL Regex from https://mathiasbynens.be/demo/url-regex look to improve and rewrite later
-        
 
         public PBScrape(string Keyword, int Id = 0, string Url = "URL not set", string Email = "Email not set", string Phone = "Phone not set")
         {
@@ -110,6 +109,7 @@ namespace PBScraper.Models
             var node = htmlDoc.DocumentNode.SelectSingleNode("//body");
             return node;
         }
+
         //Parse Title
         public object GetTitleHtml(string url)
         {
@@ -119,6 +119,8 @@ namespace PBScraper.Models
             var titleNode = htmlDoc.DocumentNode.SelectNodes("//title");
             return titleNode[0].InnerText;
         }
+        //Match Regex
+
 
         //Request Url with Method and timeout
         static string URLRequest(string url)
@@ -139,7 +141,6 @@ namespace PBScraper.Models
                 }
             }
             return (responseContent);
-
         }
 
         //Get Google Results
@@ -168,6 +169,11 @@ namespace PBScraper.Models
             {
                 return ex; 
             }
+        }
+
+        public void SplitAndSaveInstance()
+        {
+            //Method to be run over each element of _urls list
         }
     }
 }

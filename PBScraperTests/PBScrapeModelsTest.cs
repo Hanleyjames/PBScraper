@@ -75,6 +75,18 @@ namespace PBScraperTests
             Assert.AreNotEqual(0, urlList);
         }
         [TestMethod]
+        public void PBScrape_FindEmail_IsTrue()
+        {
+            //Arrange
+            //Act
+            //Assert
+        }
+        [TestMethod]
+        public void PBScrape_FindPhoneNumber_IsTrue()
+        {
+
+        }
+        [TestMethod]
         public void PBScrape_SaveUrlList_IsTrue()
         {
             //Arrange
@@ -83,7 +95,7 @@ namespace PBScraperTests
             //Act
             newScrape.GetGoogleResults(newScrape.GetKeyword());
             List<string> urlList = newScrape.GetUrls();
-            newScrape.SplitAndSaveUrls(urlList);
+            //newScrape.SplitAndSaveInstance(urlList);
             //Assert
             Assert.Fail();
         }
