@@ -171,9 +171,10 @@ namespace PBScraper.Models
             }
         }
 
-        public void SplitAndSaveInstance()
+        public void SaveURLInstanceList(List<string> url)
         {
             //Method to be run over each element of _urls list
+            
         }
     }
 }
