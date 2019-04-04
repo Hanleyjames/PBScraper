@@ -151,8 +151,13 @@ namespace PBScraper.Models
             HtmlWeb web = new HtmlWeb();
             var htmlDoc = web.Load(html);
             //Rewrite to write each div to list
-            var node = htmlDoc.DocumentNode.SelectSingleNode("//body");
-            return node;
+            var nodes = htmlDoc.DocumentNode.SelectNodes("//div");
+            List<string> divlist = new List<string>{ };
+            foreach (var node in nodes)
+            {
+                divlist.Add(node.ToString());
+            }
+            return divlist;
         }
 
         //Parse Title
