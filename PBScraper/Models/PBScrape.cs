@@ -9,6 +9,8 @@ using System.Net;
 using HtmlAgilityPack;
 using Google.Apis.Customsearch.v1;
 using Google.Apis.Services;
+using MySql;
+using MySql.Data.MySqlClient;
 
 namespace PBScraper.Models
 {
@@ -99,13 +101,19 @@ namespace PBScraper.Models
         {
             return _instancedata;
         }
-
+        public static List<PBScrape> GetAll()
+        {
+            List<PBScrape> allData = new List<PBScrape> { };
+            MySqlConnection conn = DB.Connection();
+            return allData;
+        }
         //Parse HTML from given url
-        public object ParseHtml(string url)
+        public object ParseDiv(string url)
         {
             string html = url;
             HtmlWeb web = new HtmlWeb();
             var htmlDoc = web.Load(html);
+            //Rewrite to write each div to list
             var node = htmlDoc.DocumentNode.SelectSingleNode("//body");
             return node;
         }
@@ -171,9 +179,18 @@ namespace PBScraper.Models
             }
         }
 
-        public void SplitAndSaveInstance()
+        public void SaveURLInstanceList(List<string> url)
         {
             //Method to be run over each element of _urls list
+            
+        }
+        public void FindAndSetEmail(List<string> body)
+        {
+            //Method to use regex over body list
+        }
+        public void FindAndSetPhone(List<string> body)
+        {
+            //Method to use regex over body list
         }
     }
 }

@@ -20,6 +20,11 @@ namespace PBScraper
             Configuration = configuration;
         }
 
+        public static class DBConfiguration
+        {
+            public static string ConnectionString = "server=localhost;user id=root;password=root;port=3306;database=pbscraper;";
+        }
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.

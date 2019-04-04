@@ -95,7 +95,7 @@ namespace PBScraperTests
             //Act
             newScrape.GetGoogleResults(newScrape.GetKeyword());
             List<string> urlList = newScrape.GetUrls();
-            //newScrape.SplitAndSaveInstance(urlList);
+            newScrape.SaveURLInstanceList(urlList);
             //Assert
             Assert.Fail();
         }
