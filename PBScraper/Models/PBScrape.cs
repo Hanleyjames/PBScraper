@@ -116,8 +116,6 @@ namespace PBScraper.Models
             MySqlConnection conn = DB.Connection();
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-            //Write section to get last existing id and add 1
-            //cmd.Parameters.AddWithValue("@id", (int) cmd.LastInsertedId);
             cmd.Parameters.AddWithValue("@keyword", this._keyword);
             cmd.Parameters.AddWithValue("@url", this._url);
             cmd.Parameters.AddWithValue("@email", this._email);
