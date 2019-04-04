@@ -21,7 +21,7 @@ namespace PBScraper.Models
         private string _url;
         private string _email;
         private string _phone;
-        private static List<PBScrape> _instancedata = new List<PBScrape> { };
+        private static List<PBScrape> _allScrapesStatic = new List<PBScrape> { };
         private List<string> _urls = new List<string> { };
         private readonly string _api = "AIzaSyAwaNkJAWCWn6lzvglnRbqtS1y7tbNUJSY";
         private readonly string _searchEngineId = "015153167064412439961:9t3cwc_ifrm";
@@ -31,7 +31,7 @@ namespace PBScraper.Models
 
         public PBScrape(string Keyword = "Bongos", int Id = 0, string Url = "https://Bongos.com", string Email = "Bongos@Bongos.Com", string Phone = "333-333-3333")
         {
-            _id = 0;
+            _id = _allScrapesStatic.Count + 1;
             _keyword = "Bongos";
             _url = "https://Bongos.com";
             _email = "Bongos@Bongos.Com";
@@ -100,29 +100,30 @@ namespace PBScraper.Models
             MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
             cmd.Parameters.AddWithValue("@id", this._id);
             cmd.Parameters.AddWithValue("@keyword", this._keyword);
+            cmd.Parameters.AddWithValue("@url", this._url);
             cmd.Parameters.AddWithValue("@email", this._email);
             cmd.Parameters.AddWithValue("@phone", this._phone);
-            cmd.CommandText = @"INSERT INTO pbscrape (int Id, VARCHAR keyword, VARCHAR email, VARCHAR phone)
-            VALUES ";
+            cmd.CommandText = @"INSERT INTO pbscrape (id, keyword, url, email, phone)
+            VALUES (@id, @keyword, @url, @email, @phone);";
             MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
             cmd.ExecuteNonQuery();
-            conn.Close();
             if (conn != null)
             {
                 conn.Dispose();
             }
+            conn.Close();
             //write get all
         }
 
         public List<PBScrape> GetInstanceData()
         {
-            return _instancedata;
+            return _allScrapesStatic;
         }
         public static List<PBScrape> GetAll()
         {
             List<PBScrape> allData = new List<PBScrape> { };
             MySqlConnection conn = DB.Connection();
-            conn.OpenAsync();
+            conn.Open();
             MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
             cmd.CommandText = @"SELECT * FROM pbscrape;";
             MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
@@ -233,6 +234,21 @@ namespace PBScraper.Models
         public void FindAndSetPhone(List<string> body)
         {
             //Method to use regex over body list
+        }
+        public static void ClearAll()
+        {
+            MySqlConnection conn = DB.Connection();
+            conn.OpenAsync();
+            MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"DELETE FROM pbscrape;";
+            MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+            cmd.ExecuteNonQuery();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
+            conn.Close();
+
         }
     }
 }
