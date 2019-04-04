@@ -9,6 +9,8 @@ using System.Net;
 using HtmlAgilityPack;
 using Google.Apis.Customsearch.v1;
 using Google.Apis.Services;
+using MySql;
+using MySql.Data.MySqlClient;
 
 namespace PBScraper.Models
 {
@@ -99,7 +101,12 @@ namespace PBScraper.Models
         {
             return _instancedata;
         }
-
+        public static List<PBScrape> GetAll()
+        {
+            List<PBScrape> allData = new List<PBScrape> { };
+            MySqlConnection conn = DB.Connection();
+            return allData;
+        }
         //Parse HTML from given url
         public object ParseDiv(string url)
         {
