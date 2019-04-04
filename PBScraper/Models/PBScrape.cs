@@ -116,20 +116,19 @@ namespace PBScraper.Models
             MySqlConnection conn = DB.Connection();
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.Parameters.AddWithValue("@keyword", this._keyword);
-            cmd.Parameters.AddWithValue("@url", this._url);
-            cmd.Parameters.AddWithValue("@email", this._email);
-            cmd.Parameters.AddWithValue("@phone", this._phone);
             cmd.CommandText = @"INSERT INTO pbscrape ( keyword, url, email, phone)
             VALUES ( @keyword, @url, @email, @phone);";
-            MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+            cmd.Parameters.Add(new MySqlParameter("@keyword", this._keyword));
+            cmd.Parameters.Add(new MySqlParameter("@url", this._url));
+            cmd.Parameters.Add(new MySqlParameter("@email", this._email));
+            cmd.Parameters.Add(new MySqlParameter("@phone", this._phone));
             cmd.ExecuteNonQuery();
             _id = (int) cmd.LastInsertedId;
+            conn.Close();
             if (conn != null)
             {
                 conn.Dispose();
             }
-            conn.Close();
             //write get all
         }
 
@@ -255,16 +254,15 @@ namespace PBScraper.Models
         public static void ClearAll()
         {
             MySqlConnection conn = DB.Connection();
-            conn.OpenAsync();
+            conn.Open();
             MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
             cmd.CommandText = @"DELETE FROM pbscrape;";
-            MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
             cmd.ExecuteNonQuery();
+            conn.Close();
             if (conn != null)
             {
                 conn.Dispose();
             }
-            conn.Close();
 
         }
     }
