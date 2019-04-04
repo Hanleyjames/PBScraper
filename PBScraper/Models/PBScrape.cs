@@ -33,7 +33,7 @@ namespace PBScraper.Models
 
         public PBScrape(string Keyword = "Bongos", int Id = 0, string Url = "https://Bongos.com", string Email = "Bongos@Bongos.Com", string Phone = "333-333-3333")
         {
-            _id = _allScrapesStatic.Count + 1;
+            _id = Id;
             _keyword = "Bongos";
             _url = "https://Bongos.com";
             _email = "Bongos@Bongos.Com";
@@ -116,7 +116,8 @@ namespace PBScraper.Models
             MySqlConnection conn = DB.Connection();
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.Parameters.AddWithValue("@id", this._id);
+            //Write section to get last existing id and add 1
+            cmd.Parameters.AddWithValue("@id", (int) cmd.LastInsertedId);
             cmd.Parameters.AddWithValue("@keyword", this._keyword);
             cmd.Parameters.AddWithValue("@url", this._url);
             cmd.Parameters.AddWithValue("@email", this._email);
