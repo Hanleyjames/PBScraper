@@ -21,6 +21,8 @@ namespace PBScraper.Models
         private string _url;
         private string _email;
         private string _phone;
+        private bool _foundNumber;
+        private bool _foundEmail;
         private static List<PBScrape> _allScrapesStatic = new List<PBScrape> { };
         private List<string> _urls = new List<string> { };
         private readonly string _api = "AIzaSyAwaNkJAWCWn6lzvglnRbqtS1y7tbNUJSY";
@@ -91,12 +93,28 @@ namespace PBScraper.Models
         {
             _phone = Phone;
         }
+        public void SetEmailTrue()
+        {
+            _foundEmail = true;
+        }
+        public void SetEmailFalse()
+        {
+            _foundEmail = false;
+        }
+        public void SetPhoneTrue()
+        {
+            _foundNumber = true;
+        }
+        public void SetPhoneFalse()
+        {
+            _foundNumber = false;
+        }
 
         public void Save()
         {
             List<PBScrape> allData = PBScrape.GetAll();
             MySqlConnection conn = DB.Connection();
-            conn.OpenAsync();
+            conn.Open();
             MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
             cmd.Parameters.AddWithValue("@id", this._id);
             cmd.Parameters.AddWithValue("@keyword", this._keyword);
@@ -170,7 +188,6 @@ namespace PBScraper.Models
             var titleNode = htmlDoc.DocumentNode.SelectNodes("//title");
             return titleNode[0].InnerText;
         }
-        //Match Regex
 
 
         //Request Url with Method and timeout
