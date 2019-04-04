@@ -117,15 +117,16 @@ namespace PBScraper.Models
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
             //Write section to get last existing id and add 1
-            cmd.Parameters.AddWithValue("@id", (int) cmd.LastInsertedId);
+            //cmd.Parameters.AddWithValue("@id", (int) cmd.LastInsertedId);
             cmd.Parameters.AddWithValue("@keyword", this._keyword);
             cmd.Parameters.AddWithValue("@url", this._url);
             cmd.Parameters.AddWithValue("@email", this._email);
             cmd.Parameters.AddWithValue("@phone", this._phone);
-            cmd.CommandText = @"INSERT INTO pbscrape (id, keyword, url, email, phone)
-            VALUES (@id, @keyword, @url, @email, @phone);";
+            cmd.CommandText = @"INSERT INTO pbscrape ( keyword, url, email, phone)
+            VALUES ( @keyword, @url, @email, @phone);";
             MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
             cmd.ExecuteNonQuery();
+            _id = (int) cmd.LastInsertedId;
             if (conn != null)
             {
                 conn.Dispose();
