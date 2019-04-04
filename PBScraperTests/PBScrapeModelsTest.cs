@@ -9,16 +9,30 @@ namespace PBScraperTests
     public class PBScraperModelTests
     {
         [TestMethod]
-        public void PBScrape_SavesInstance_IsTrue()
+        public void PBScrape_SavesStaticVariables_IsTrue()
         {
-            //Arrange
-            PBScrape newScrape = new PBScrape("Wikipedia test");
-            //Act
+            PBScrape newScrape = new PBScrape();
             newScrape.Save();
-            List<PBScrape> scrapedData = newScrape.GetInstanceData();
-            int scrapedDataCount = scrapedData.Count;
-            //Assert
-            Assert.AreEqual(1, scrapedDataCount);
+            int Id = newScrape.GetId();
+            string Keyword = newScrape.GetKeyword();
+            string Url = newScrape.GetUrl();
+            string Phone = newScrape.GetPhone();
+            string Email = newScrape.GetEmail();
+            bool TestBool = false;
+            if (Id == 0 && Keyword == "Bongos" && Url == "https://Bongos.com" && Phone == "333-333-3333" && Email == "Bongo@Bongo.Com")
+            {
+                TestBool = true;
+            }
+            Assert.AreEqual(TestBool, true);
+        }
+        [TestMethod]
+        public void PBScrape_CountsDatabaseEntries_1()
+        {
+            PBScrape newScrape = new PBScrape();
+            newScrape.Save();
+            List<PBScrape> allScrapes = PBScrape.GetAll();
+            int count = allScrapes.Count;
+            Assert.AreEqual(1, count);
         }
 
         [TestMethod]

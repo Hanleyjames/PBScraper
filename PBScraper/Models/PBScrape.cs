@@ -29,13 +29,13 @@ namespace PBScraper.Models
         public Regex _findEmail = new Regex(@"(?:(?:\+?([1-9]|[0-9][0-9]|[0-9][0-9][0-9])\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([0-9][1-9]|[0-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?");
         //URL Regex from https://mathiasbynens.be/demo/url-regex look to improve and rewrite later
 
-        public PBScrape(string Keyword, int Id = 0, string Url = "URL not set", string Email = "Email not set", string Phone = "Phone not set")
+        public PBScrape(string Keyword = "Bongos", int Id = 0, string Url = "https://Bongos.com", string Email = "Bongos@Bongos.Com", string Phone = "333-333-3333")
         {
-            _id = Id;
-            _keyword = Keyword;
-            _url = Url;
-            _email = Email;
-            _phone = Phone;
+            _id = 0;
+            _keyword = "Bongos";
+            _url = "https://Bongos.com";
+            _email = "Bongos@Bongos.Com";
+            _phone = "333-333-3333";
         }
 
         public int GetId()
@@ -94,7 +94,24 @@ namespace PBScraper.Models
 
         public void Save()
         {
-            _instancedata.Add(this);
+            List<PBScrape> allData = PBScrape.GetAll();
+            MySqlConnection conn = DB.Connection();
+            conn.OpenAsync();
+            MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.Parameters.AddWithValue("@id", this._id);
+            cmd.Parameters.AddWithValue("@keyword", this._keyword);
+            cmd.Parameters.AddWithValue("@email", this._email);
+            cmd.Parameters.AddWithValue("@phone", this._phone);
+            cmd.CommandText = @"INSERT INTO pbscrape (int Id, VARCHAR keyword, VARCHAR email, VARCHAR phone)
+            VALUES ";
+            MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
+            //write get all
         }
 
         public List<PBScrape> GetInstanceData()
@@ -105,6 +122,26 @@ namespace PBScraper.Models
         {
             List<PBScrape> allData = new List<PBScrape> { };
             MySqlConnection conn = DB.Connection();
+            conn.OpenAsync();
+            MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"SELECT * FROM pbscrape;";
+            MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+            while (rdr.Read())
+            {
+                int instanceId = rdr.GetInt32(0);
+                string instanceKeyword = rdr.GetString(1);
+                string instanceURL = rdr.GetString(2);
+                string instancePhone = rdr.GetString(3);
+                string instanceEmail = rdr.GetString(4);
+                PBScrape newInstance = new PBScrape(instanceKeyword, instanceId, instanceURL, instanceEmail, instancePhone);
+                allData.Add(newInstance);
+            }
+            conn.Close();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
+            //write get all
             return allData;
         }
         //Parse HTML from given url
@@ -160,9 +197,9 @@ namespace PBScraper.Models
             listRequest.Cx = _searchEngineId;
             IList<Google.Apis.Customsearch.v1.Data.Result> Results = new List<Google.Apis.Customsearch.v1.Data.Result>();
             byte count = 0;
-            try 
-            { 
-                while(Results != null)
+            try
+            {
+                while (Results != null)
                 {
                     listRequest.Start = count * 10 + 1;
                     Results = listRequest.Execute().Items;
@@ -175,14 +212,14 @@ namespace PBScraper.Models
             }
             catch (Exception ex)
             {
-                return ex; 
+                return ex;
             }
         }
 
         public void SaveURLInstanceList(List<string> url)
         {
             //Method to be run over each element of _urls list
-            
+
         }
         public void FindAndSetEmail(List<string> body)
         {
