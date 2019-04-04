@@ -101,11 +101,12 @@ namespace PBScraper.Models
         }
 
         //Parse HTML from given url
-        public object ParseHtml(string url)
+        public object ParseDiv(string url)
         {
             string html = url;
             HtmlWeb web = new HtmlWeb();
             var htmlDoc = web.Load(html);
+            //Rewrite to write each div to list
             var node = htmlDoc.DocumentNode.SelectSingleNode("//body");
             return node;
         }
@@ -175,6 +176,14 @@ namespace PBScraper.Models
         {
             //Method to be run over each element of _urls list
             
+        }
+        public void FindAndSetEmail(List<string> body)
+        {
+            //Method to use regex over body list
+        }
+        public void FindAndSetPhone(List<string> body)
+        {
+            //Method to use regex over body list
         }
     }
 }
