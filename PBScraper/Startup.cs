@@ -22,7 +22,7 @@ namespace PBScraper
 
         public static class DBConfiguration
         {
-            public static string ConnectionString = "server=localhost;user id=root;password=root;port=3306;database=pbscraper;";
+            public static string ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=pbscraper;";
         }
 
         public IConfiguration Configuration { get; }

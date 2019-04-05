@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PBScraper.Models;
 
 namespace PBScraper.Controllers
 {
@@ -15,7 +16,13 @@ namespace PBScraper.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            List <PBScrape> allScrapes = PBScrape.GetAll();
+            List <string> allKeys = new List <string>();
+            for (int i = 0; i < allScrapes.Count; i++)
+            {
+                allKeys.Add(allScrapes[i].GetKeyword());
+            }
+            return allKeys;
         }
 
         // GET: api/PBScrape/5
