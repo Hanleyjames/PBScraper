@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PBScraper.Models;
 using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace PBScraper.Controllers
 {
@@ -16,15 +16,21 @@ namespace PBScraper.Controllers
     {
         // GET: api/PBScrape
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string Get()
         {
             List <PBScrape> allScrapes = PBScrape.GetAll();
-            List <string> allKeys = new List <string>();
+            Dictionary <string, string> allKeys = new Dictionary <string, string>();
             for (int i = 0; i < allScrapes.Count; i++)
             {
-                allKeys.Add(allScrapes[i].GetKeyword());
+                allKeys.Add("id", allScrapes[i].GetId().ToString());
+                allKeys.Add("keyword", allScrapes[i].GetKeyword());
+                allKeys.Add("url", allScrapes[i].GetUrl());
+                allKeys.Add("email", allScrapes[i].GetEmail());
+                allKeys.Add("phone", allScrapes[i].GetPhone());
+
             }
-            return allKeys;
+            string json = JsonConvert.SerializeObject(allKeys);
+            return json;
         }
 
         // GET: api/PBScrape/5
