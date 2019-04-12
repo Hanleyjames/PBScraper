@@ -137,6 +137,8 @@ namespace PBScraper.Models
         {
             return _allScrapesStatic;
         }
+
+        
         public static List<PBScrape> GetAll()
         {
             List<PBScrape> allData = new List<PBScrape> { };
@@ -164,7 +166,7 @@ namespace PBScraper.Models
             return allData;
         }
         //Parse HTML from given url
-        public object ParseDiv(string url)
+        public List<string> ParseDiv(string url)
         {
             string html = url;
             HtmlWeb web = new HtmlWeb();

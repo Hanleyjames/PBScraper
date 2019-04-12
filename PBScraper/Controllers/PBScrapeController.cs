@@ -34,16 +34,25 @@ namespace PBScraper.Controllers
         }
 
         // GET: api/PBScrape/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("{keyword}", Name = "Get")]
+        public string Get(string keyword)
         {
+            
             return "value";
         }
 
         // POST: api/PBScrape
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] string keyword)
         {
+            PBScrape newScrape = new PBScrape();
+            List<object> newList = new List<object> { newScrape.GetGoogleResults(keyword) };
+            foreach(var url in newList)
+            {
+                List<string> parsedDiv = new List<string> { newScrape.ParseDiv(url.ToString()) };
+
+            }
+
         }
 
         // PUT: api/PBScrape/5
