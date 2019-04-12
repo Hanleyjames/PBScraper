@@ -53,13 +53,41 @@ namespace PBScraper.Controllers
             foreach(var url in newList)
             {
                 List<string> parsedDiv = new List<string> { newScrape.ParseDiv(url.ToString()).ToString() };
+                bool emailMatchBool = false;
+                bool phoneMatchBool = false;
                 foreach(var div in parsedDiv)
                 {
                     //Email
-                    string emailPattern = @"";
-                    string phonePattern = @"";
+                    string emailPattern = _emailRegex;
+                    string phonePattern = _phoneRegex;
                     Match emailMatch = Regex.Match(div, emailPattern);
                     Match phoneMatch = Regex.Match(div, phonePattern);
+                    if(emailMatchBool == false)
+                    {
+                        if (emailMatch.Success)
+                        {
+                            emailMatchBool = true;
+                            newScrape.SetEmail(emailMatch.Value);
+                        }
+                        else
+                        {
+                            newScrape.SetEmail("No Match Found");
+                        }
+                    }
+                    if(phoneMatchBool == false)
+                    {
+                        if (phoneMatch.Success)
+                        {
+                            phoneMatchBool = true;
+                            newScrape.SetPhone(phoneMatch.Value);
+                        }
+                        else
+                        {
+                            newScrape.SetPhone("No Match Found");
+                        }
+                    }
+
+
                 }
 
             }
