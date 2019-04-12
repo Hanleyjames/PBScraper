@@ -49,7 +49,7 @@ namespace PBScraper.Controllers
             List<object> newList = new List<object> { newScrape.GetGoogleResults(keyword) };
             foreach(var url in newList)
             {
-                List<string> parsedDiv = new List<string> { newScrape.ParseDiv(url.ToString()) };
+                List<string> parsedDiv = new List<string> { newScrape.ParseDiv(url.ToString()).ToString() };
 
             }
 

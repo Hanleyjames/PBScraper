@@ -166,14 +166,14 @@ namespace PBScraper.Models
             return allData;
         }
         //Parse HTML from given url
-        public List<string> ParseDiv(string url)
+        public List<object> ParseDiv(string url)
         {
             string html = url;
             HtmlWeb web = new HtmlWeb();
             var htmlDoc = web.Load(html);
             //Rewrite to write each div to list
             var nodes = htmlDoc.DocumentNode.SelectNodes("//div");
-            List<string> divlist = new List<string>{ };
+            List<object> divlist = new List<object>{ };
             foreach (var node in nodes)
             {
                 divlist.Add(node.ToString());
