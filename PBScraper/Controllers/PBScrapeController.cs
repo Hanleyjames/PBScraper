@@ -98,7 +98,7 @@ namespace PBScraper.Controllers
                     }
                 }
                 //save instance
-
+                newScrape.Save();
             }
 
         }
