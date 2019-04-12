@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.RegularExpressions;
 using PBScraper.Models;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
@@ -14,6 +15,8 @@ namespace PBScraper.Controllers
     [ApiController]
     public class PBScrapeController : ControllerBase
     {
+        public readonly string _emailRegex = @"^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@(([0-9a-zA-Z])+([-\w]*[0-9a-zA-Z])*\.)+[a-zA-Z]{2,9})$";
+        public readonly string _phoneRegex = @"(?:(?:\+?([1-9]|[0-9][0-9]|[0-9][0-9][0-9])\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([0-9][1-9]|[0-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?";
         // GET: api/PBScrape
         [HttpGet]
         public string Get()
@@ -50,6 +53,14 @@ namespace PBScraper.Controllers
             foreach(var url in newList)
             {
                 List<string> parsedDiv = new List<string> { newScrape.ParseDiv(url.ToString()).ToString() };
+                foreach(var div in parsedDiv)
+                {
+                    //Email
+                    string emailPattern = @"";
+                    string phonePattern = @"";
+                    Match emailMatch = Regex.Match(div, emailPattern);
+                    Match phoneMatch = Regex.Match(div, phonePattern);
+                }
 
             }
 
