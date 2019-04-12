@@ -238,20 +238,6 @@ namespace PBScraper.Models
                 return ex;
             }
         }
-
-        public void SaveURLInstanceList(List<string> url)
-        {
-            //Method to be run over each element of _urls list
-
-        }
-        public void FindAndSetEmail(List<string> body)
-        {
-            //Method to use regex over body list
-        }
-        public void FindAndSetPhone(List<string> body)
-        {
-            //Method to use regex over body list
-        }
         public static void ClearAll()
         {
             MySqlConnection conn = DB.Connection();

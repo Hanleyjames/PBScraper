@@ -48,20 +48,29 @@ namespace PBScraper.Controllers
         [HttpPost]
         public void Post([FromBody] string keyword)
         {
+            //New instance
             PBScrape newScrape = new PBScrape();
-            List<object> newList = new List<object> { newScrape.GetGoogleResults(keyword) };
+            //Set Keyword string and scrape keyword
+            string postKeyword = keyword;
+            newScrape.SetKeyword(postKeyword);
+            //Get list of url's off keyword
+            List<object> newList = new List<object> { newScrape.GetGoogleResults(postKeyword) };
+            //Step through each URL
             foreach(var url in newList)
             {
-                List<string> parsedDiv = new List<string> { newScrape.ParseDiv(url.ToString()).ToString() };
+                string instanceUrl = url.ToString();
                 bool emailMatchBool = false;
                 bool phoneMatchBool = false;
+                List<string> parsedDiv = new List<string> { newScrape.ParseDiv(instanceUrl).ToString() };
+                newScrape.SetUrl(instanceUrl);
                 foreach(var div in parsedDiv)
                 {
-                    //Email
+                    //Email & Phone regex match
                     string emailPattern = _emailRegex;
                     string phonePattern = _phoneRegex;
                     Match emailMatch = Regex.Match(div, emailPattern);
                     Match phoneMatch = Regex.Match(div, phonePattern);
+                    //If email regex match
                     if(emailMatchBool == false)
                     {
                         if (emailMatch.Success)
@@ -74,6 +83,7 @@ namespace PBScraper.Controllers
                             newScrape.SetEmail("No Match Found");
                         }
                     }
+                    //if phone match
                     if(phoneMatchBool == false)
                     {
                         if (phoneMatch.Success)
@@ -86,9 +96,8 @@ namespace PBScraper.Controllers
                             newScrape.SetPhone("No Match Found");
                         }
                     }
-
-
                 }
+                //save instance
 
             }
 
